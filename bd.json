@@ -1,0 +1,62 @@
+[
+    {
+        "precio": 400,
+        "id": 1,
+        "title": "Falafels",
+        "thumbnailUrl": "https://greencow.netlify.app/img/falafels.jpg"
+    },
+    {
+        "precio": 600,
+        "id": 2,
+        "title": "Fideos de arroz con verduras",
+        "thumbnailUrl": "https://greencow.netlify.app/img/fideos_de_arroz_con_verduras.jpg"
+    },
+    {
+        "precio": 500,
+        "id": 3,
+        "title": "Pisto Manchego",
+        "thumbnailUrl": "https://greencow.netlify.app/img/pisto_manchego.jpg"
+    },
+    {
+        "precio": 500,
+        "id": 4,
+        "title": "Quiche de espinacas",
+        "thumbnailUrl": "https://greencow.netlify.app/img/quiche_de_espinacas.jpg"
+    },
+    {
+        "precio": 400,
+        "id": 5,
+        "title": "Ratatouille",
+        "thumbnailUrl": "https://greencow.netlify.app/img/ratatouille.jpg"
+    },
+    {
+        "precio": 600,
+        "id": 6,
+        "title": "Lasagna Vegetariana",
+        "thumbnailUrl": "https://greencow.netlify.app/img/lasana_vegetariana.jpg"
+    },
+    {
+        "precio": 480,
+        "id": 7,
+        "title": "Risotto de Hongos",
+        "thumbnailUrl": "https://greencow.netlify.app/img/risotto_de_hongos.jpg"
+    },
+    {
+        "precio": 550,
+        "id": 8,
+        "title": "Tortilla de Esparragos",
+        "thumbnailUrl": "https://greencow.netlify.app/img/tortilla_de_esparragos.jpg"
+    },
+    {
+        "precio": 450,
+        "id": 9,
+        "title": "Tortilla de Papas",
+        "thumbnailUrl": "https://greencow.netlify.app/img/tortilla_de_papas.jpg"
+    },
+    {
+        "precio": 400,
+        "id": 10,
+        "title": "Wok de Verduras",
+        "thumbnailUrl": "https://greencow.netlify.app/img/wok_de_verduras.jpg"
+    }
+]

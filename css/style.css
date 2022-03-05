@@ -35,6 +35,12 @@ body {
 .separador {
 	height: 4rem;
 }
+.separadorsistema {
+	height: 9rem;
+}
+.separadorintermedio {
+	height: 50rem;
+}
 .container-spec {
 	height:100vh;
 }
