@@ -1,6 +1,14 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
 body {
 	background-color: whitesmoke;
+	height: fit-content;
 }
+
 .fondoverde {
 	background-color: #1f3615;
 }
@@ -24,6 +32,17 @@ body {
 	color: white;
 }
 
+.separador {
+	height: 4rem;
+}
+.container-spec {
+	height:100vh;
+}
+
+footer {
+	position: fixed;
+	bottom: 0px;
+}
 /*GRADIENTE ANIMADO TEXTO*/
 .textogradiente {
 	color: #7431dd;
