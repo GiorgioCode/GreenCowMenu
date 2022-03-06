@@ -6,7 +6,6 @@
 
 body {
 	background-color: whitesmoke;
-	height: fit-content;
 }
 
 .fondoverde {
@@ -38,12 +37,7 @@ body {
 .separadorsistema {
 	height: 9rem;
 }
-.separadorintermedio {
-	height: 50rem;
-}
-.container-spec {
-	height:100vh;
-}
+
 
 footer {
 	position: fixed;
