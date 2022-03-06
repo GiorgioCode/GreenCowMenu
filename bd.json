@@ -58,5 +58,77 @@
         "id": 10,
         "title": "Wok de Verduras",
         "thumbnailUrl": "https://greencow.netlify.app/img/wok_de_verduras.jpg"
+    },
+    {
+        "precio": 350,
+        "id": 11,
+        "title": "Pasta con verduras",
+        "thumbnailUrl": "https://greencow.netlify.app/img/pasta_con_verduras.jpg"
+    },
+    {
+        "precio": 350,
+        "id": 12,
+        "title": "Espaguetis de calabacin",
+        "thumbnailUrl": "https://greencow.netlify.app/img/espaguetis_de_calabacin.jpg"
+    },
+    {
+        "precio": 400,
+        "id": 13,
+        "title": "Canelones de espinaca",
+        "thumbnailUrl": "https://greencow.netlify.app/img/canelones_de_espinaca.jpg"
+    },
+    {
+        "precio": 450,
+        "id": 14,
+        "title": "Tallarines con vegetales al wok",
+        "thumbnailUrl": "https://greencow.netlify.app/img/tallarines_con_vegetales_al_wok.jpg"
+    },
+    {
+        "precio": 350,
+        "id": 15,
+        "title": "Pasta al pesto",
+        "thumbnailUrl": "https://greencow.netlify.app/img/pasta_al_pesto.jpg"
+    },
+    {
+        "precio": 450,
+        "id": 16,
+        "title": "Sopa de fideos",
+        "thumbnailUrl": "https://greencow.netlify.app/img/sopa_de_fideos.jpg"
+    },
+    {
+        "precio": 300,
+        "id": 17,
+        "title": "Menestra de verduras",
+        "thumbnailUrl": "https://greencow.netlify.app/img/menestra_de_verduras.jpg"
+    },
+    {
+        "precio": 450,
+        "id": 18,
+        "title": "Souffle de espinacas",
+        "thumbnailUrl": "https://greencow.netlify.app/img/souffle_de_espinacas.jpg"
+    },
+    {
+        "precio": 350,
+        "id": 19,
+        "title": "Gazpacho",
+        "thumbnailUrl": "https://greencow.netlify.app/img/gazpacho.jpg"
+    },
+    {
+        "precio": 300,
+        "id": 20,
+        "title": "Ajoblanco",
+        "thumbnailUrl": "https://greencow.netlify.app/img/ajoblanco.jpg"
+    },
+    {
+        "precio": 400,
+        "id": 21,
+        "title": "Paella de verduras",
+        "thumbnailUrl": "https://greencow.netlify.app/img/paella_de_verduras.jpg"
+    },
+    {
+        "precio": 350,
+        "id": 22,
+        "title": "Arroz a la cubana",
+        "thumbnailUrl": "https://greencow.netlify.app/img/arroz_a_la_cubana.jpg"
     }
 ]
