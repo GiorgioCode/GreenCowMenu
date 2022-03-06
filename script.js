@@ -35,13 +35,15 @@ const detectarBotones = (data) => { //escuchar botones de tarjetas para agregar 
     const botones = document.querySelectorAll('.card button')
 
     botones.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', () => { //detecta click en tarjeta
+            
             const producto = data.find(item => item.id === parseInt(btn.dataset.id))
             producto.cantidad = 1
             if (resumen.hasOwnProperty(producto.id)) {
                 producto.cantidad = resumen[producto.id].cantidad + 1
             }
             resumen[producto.id] = { ...producto }
+            alert("Agregado un plato de "+producto.title+" a la mesa."); //confirmacion plato agregado
             mostrarResumen()
         })
     })
