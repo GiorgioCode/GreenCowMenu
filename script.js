@@ -142,3 +142,22 @@ const accionBotones = () => {
         })
     })
 }
+
+function CambiarPlatosResumen() { //Funcion para cambiar visibilidad de Resumen o de Productos
+    const boton = document.getElementById('botonCambiar');
+    if (boton.textContent == ' Ver Resumen') {
+        const platos = document.getElementById('contenedorPlatos');
+        platos.className = 'container-fluid invisible'
+        const resumen = document.getElementById('resumen');
+        resumen.className = 'my-5'
+        const boton = document.getElementById('botonCambiar');
+        boton.textContent = ' Cargar Pedido'
+    } else if (boton.textContent == " Cargar Pedido"){
+        const platos = document.getElementById('contenedorPlatos');
+        platos.className = 'container-fluid'
+        const resumen = document.getElementById('resumen');
+        resumen.className = 'my-5 invisible'
+        const boton = document.getElementById('botonCambiar');
+        boton.textContent = ' Ver Resumen'
+    }
+}

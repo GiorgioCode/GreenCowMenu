@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="./css/style.css" />
 	<title>Proyecto Final - EN PROCESO</title>
 </head>
-
 <body>
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top fondoverde">
@@ -32,13 +31,8 @@
 							<a class="nav-link h4" aria-current="page" href="mesas.html"><i class="bi bi-menu-down"></i>
 								Mesas</a>
 						</li>
-						<li class="nav-item text-center">
-							<a class="nav-link h4" aria-current="page" href="sistema.html#cargar"><i
-									class="bi bi-bag-plus-fill"></i> Cargar Pedido</a>
-						</li>
-						<li class="nav-item text-center">
-							<a class="nav-link h4" aria-current="page" href="sistema.html#resumen"><i
-									class="bi bi-menu-button-wide-fill"></i> Resumen</a>
+						<li class="nav-item text-center px-3">
+							<button type="submit" id="botonCambiar" class="btn btn-lg bg-success text-white" onclick="CambiarPlatosResumen();"> Ver Resumen</button>
 						</li>
 					</ul>
 				</div>
@@ -46,17 +40,14 @@
 		</nav>
 	</header>
 	<main>
-		<div class="separadorsistema" id="cargar"></div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="textoverde d-flex text-center justify-content-center mb-2">
-					<h1>Seleccione el plato y presione <span class="bg-success px-2 text-white rounded-2"> Cargar a la mesa </span></h1>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid">
+		<div id="cargar"></div>
+		<div class="container-fluid" id="contenedorPlatos">
 			<!--Aparecen productos para cargar a la mesa-->
+			<div class="row">
+				<div class="separador"></div>
+			</div>
 			<div class="row" id="contenedor-productos"></div>
+			<div class="separador"></div>
 		</div>
 
 		<div class="container">
@@ -79,16 +70,16 @@
 					</div>
 				</div>
 			</template>
-			<div class="my-5" id="resumen">
-				<div class="separadorsistema"></div>
+			<div class="my-5 invisible" id="resumen">
+				<div class="separador"></div>
 				<h4>Resumen de consumos de la mesa</h4>
 				<table class="table">
 					<thead>
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">Item</th>
-							<th scope="col">Cantidad</th>
-							<th scope="col">Acción</th>
+							<th scope="col">Cant.</th>
+							<th scope="col">Modif.</th>
 							<th scope="col">Total</th>
 						</tr>
 					</thead>
@@ -106,8 +97,8 @@
 			<th scope="row" colspan="2">Total consumos</th>
 			<td>10</td>
 			<td>
-				<button class="btn btn-danger btn-sm" id="vaciar-resumen">
-					Limpiar
+				<button class="btn btn-outline-danger btn-sm" id="vaciar-resumen">
+					<i class="bi bi-trash"></i>
 				</button>
 			</td>
 			<td class="font-weight-bold">$ <span>5000</span></td>
