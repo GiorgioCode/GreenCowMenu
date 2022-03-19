@@ -1,5 +1,5 @@
-//cargar datos de localstorage
-function validateForm(){
+//ACCESO REGISTRO - cargar datos de localstorage
+function validarFormulario(){
 
     let data=localStorage.getItem('datosGuardados') ? JSON.parse(localStorage.getItem('datosGuardados')) : [];;
     let formData ={
@@ -15,16 +15,16 @@ function validateForm(){
         } 
 }
 
-//verificar coincidencia de password
-function verifyPassword(input){
+//ACCESO REGISTRO - verificar coincidencia de password
+function verificarPassword(input){
     if(input.value != document.getElementById("uPassword").value){
         input.setCustomValidity("El password no coincide");
     }else{
         input.setCustomValidity("");
     }
 }
-//verificar usuario ya registrado
-function emailExist(value){
+//ACCESO REGISTRO - verificar usuario ya registrado
+function verificarEmail(value){
     let existemail = JSON.parse(localStorage.getItem("datosGuardados"));
     
     let emailid = existemail.map((email,i,existemail) =>{
@@ -40,7 +40,7 @@ function emailExist(value){
         }
     });
 }
-//manejo de vistas
+//ACCESO REGISTRO - manejo de vistas acceso registro
     const form = document.getElementById("registerForm");
     form.addEventListener("submit", function(e){
         e.preventDefault();
@@ -49,14 +49,14 @@ function emailExist(value){
         form.style.display="none";
     });
 
-    function showHide(show, hide){
-        let showEle = document.getElementById(show);
-        let hideEle = document.getElementById(hide);
-        showEle.style.display="block";
-        hideEle.style.display="none";
+    function mostrarOcultar(mostrar, ocultar){
+        let mostrarElemento = document.getElementById(mostrar);
+        let ocultarElemento = document.getElementById(ocultar);
+        mostrarElemento.style.display="block";
+        ocultarElemento.style.display="none";
     }
 
-    //login y acceso
+//ACCESO REGISTRO - login y acceso
     function loginUser(){
         
         let loginEmail = document.getElementById("uemailId").value;

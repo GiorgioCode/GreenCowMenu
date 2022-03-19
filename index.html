@@ -25,20 +25,20 @@
             <div class="row">
                 <div class="col">
                     <form id="registerForm" method="POST" name="registration" class="form-control fondoverdeclaro"
-                        onsubmit="validateForm();" style="display: none">
+                        onsubmit="validarFormulario();" style="display: none">
                         <div>
                             <h1 class="textoverde text-center">Registrarse</h1>
                             <input  class="form-control" type="text" name="Name" id="uName" placeholder="Ingrese su nombre" required /><br>
 
                             <input  class="form-control" type="email" name="Email" id="uEmail" placeholder="Ingrese su email"
-                                oninput="emailExist(this)" required /><br>
+                                oninput="verificarEmail(this)" required /><br>
 
                             <input  class="form-control" type="password" name="Password" id="uPassword" placeholder="Ingrese password"
                                 pattern=".{0}|.{6,}" required /><br>
                             <p>minimo SEIS(6) caracteres</p>
 
                             <input  class="form-control" type="password" name="Confirm Password" id="confirmPassword"
-                                placeholder="Confirme password" oninput="verifyPassword(this)" required /><br>
+                                placeholder="Confirme password" oninput="verificarPassword(this)" required /><br>
                                 
                             <div class="d-flex justify-content-center">
                                 <button class="btn btn-lg btn-success" type="submit" id="submit">Registrarse</button>
@@ -47,7 +47,7 @@
                             <div class="d-flex justify-content-center">
                                 <p>Ya tienes cuenta?
                                     <a class="btn btn-success" href="javascript:void(0);"
-                                        onclick="showHide('logIn', 'registerForm')">Ingresar</a></p>
+                                        onclick="mostrarOcultar('logIn', 'registerForm')">Ingresar</a></p>
                             </div>
                         </div>
                 </div>
@@ -59,7 +59,7 @@
                     <p>
                         Tu cuenta ya ha sido creada.
                         <a class="btn btn-success" href="javascript:void(0);"
-                            onclick="showHide('logIn', 'thankYou')">Ingresar</a>
+                            onclick="mostrarOcultar('logIn', 'thankYou')">Ingresar</a>
                     </p>
                 </div>
             </form>
@@ -78,7 +78,7 @@
                     <div class="d-flex justify-content-center">
                         <p> 
                             No tienes cuenta? <a class="btn btn-success"
-                            onclick="showHide('registerForm','logIn')">Crear cuenta</a>
+                            onclick="mostrarOcultar('registerForm','logIn')">Crear cuenta</a>
                         </p>
                     </div>                   
                 </div>
