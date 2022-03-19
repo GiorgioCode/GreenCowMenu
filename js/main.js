@@ -41,7 +41,9 @@ const mostrarPlatos = (data) => { //Funcion para cargar datos del JSON en forma 
     const fragment = document.createDocumentFragment()
     data.forEach(producto => {
         template.querySelector('img').setAttribute('src', producto.thumbnailUrl)
-        template.querySelector('h5').textContent = producto.title
+        template.querySelector('h3').textContent = producto.title
+        template.querySelector('.descripcion').textContent = producto.descripcion
+        template.querySelector('.claves').textContent = producto.claves
         template.querySelector('p span').textContent = producto.precio
         template.querySelector('button').dataset.id = producto.id
         const clone = template.cloneNode(true)
@@ -64,7 +66,7 @@ const detectarBotones = (data) => { //escuchar botones de tarjetas para agregar 
                 producto.cantidad = resumen[producto.id].cantidad + 1
             }
             resumen[producto.id] = { ...producto }
-            alert("Agregado un plato de "+producto.title+" a la mesa."); //confirmacion plato agregado
+            alert("Agregado "+producto.title+" a la mesa."); //confirmacion plato agregado
             mostrarResumen()
         })
     })

@@ -3,132 +3,224 @@
         "precio": 400,
         "id": 1,
         "title": "Falafels",
-        "thumbnailUrl": "https://greencow.netlify.app/img/falafels.jpg"
+        "descripcion": "Mezcla triturada de garbanzos hidratados en agua con cebolla, ajo y diferentes hierbas y especias.",
+        "claves": "etnica, falafels, garbanzos, plato entrada",
+        "thumbnailUrl": "../img/falafels.jpg"
     },
     {
         "precio": 600,
         "id": 2,
         "title": "Fideos de arroz con verduras",
-        "thumbnailUrl": "https://greencow.netlify.app/img/fideos_de_arroz_con_verduras.jpg"
+        "descripcion": "Fideos de arroz salteados con verduras",
+        "claves": "pasta, fideos, arroz, verduras, plato principal",
+        "thumbnailUrl": "../img/fideos_de_arroz_con_verduras.jpg"
     },
     {
         "precio": 500,
         "id": 3,
         "title": "Pisto Manchego",
-        "thumbnailUrl": "https://greencow.netlify.app/img/pisto_manchego.jpg"
+        "descripcion": "Plato tradicional de la cocina manchega que consiste en una fritada de diversas verduras.",
+        "claves": "pisto, manchego, etnico, frito, españa, plato principal",
+        "thumbnailUrl": "../img/pisto_manchego.jpg"
     },
     {
         "precio": 500,
         "id": 4,
         "title": "Quiche de espinacas",
-        "thumbnailUrl": "https://greencow.netlify.app/img/quiche_de_espinacas.jpg"
+        "descripcion": "Tarta salada de origen frances con espinaca, queso de cabra y tomates.",
+        "claves": "etnico, francia, tarta, quiche, tomates, espinaca, queso de cabra, plato principal",
+        "thumbnailUrl": "../img/quiche_de_espinacas.jpg"
     },
     {
         "precio": 400,
         "id": 5,
         "title": "Ratatouille",
-        "thumbnailUrl": "https://greencow.netlify.app/img/ratatouille.jpg"
+        "descripcion": "Receta originaria de la gastronomía francesa. Es un plato a base de verduras: calabacines, berenjenas, cebolla",
+        "claves": "verduras, ratatouille, francia, calabacines, berenjena, cebolla, plato principal",
+        "thumbnailUrl": "../img/ratatouille.jpg"
     },
     {
         "precio": 600,
         "id": 6,
         "title": "Lasagna Vegetariana",
-        "thumbnailUrl": "https://greencow.netlify.app/img/lasana_vegetariana.jpg"
+        "descripcion": "version vegetariana de clasico italiano de pasta rellena en capas.",
+        "claves": "pasta, italia, vegetales, lasagna, plato principal",
+        "thumbnailUrl": "../img/lasana_vegetariana.jpg"
     },
     {
         "precio": 480,
         "id": 7,
         "title": "Risotto de Hongos",
-        "thumbnailUrl": "https://greencow.netlify.app/img/risotto_de_hongos.jpg"
+        "descripcion": "El risotto es una receta típica de Italia con el arroz y los hongos como protagonistas en esta ocasión.",
+        "claves": "arroz, hongos, italia, plato principal",
+        "thumbnailUrl": "../img/risotto_de_hongos.jpg"
     },
     {
         "precio": 550,
         "id": 8,
         "title": "Tortilla de Esparragos",
-        "thumbnailUrl": "https://greencow.netlify.app/img/tortilla_de_esparragos.jpg"
+        "descripcion": "Tortilla de esparragos verdes con huevo.",
+        "claves": "esparragos, huevos, cebolla, tortilla, españa, plato entrada",
+        "thumbnailUrl": "../img/tortilla_de_esparragos.jpg"
     },
     {
         "precio": 450,
         "id": 9,
         "title": "Tortilla de Papas",
-        "thumbnailUrl": "https://greencow.netlify.app/img/tortilla_de_papas.jpg"
+        "descripcion": "Tortilla española con papas, huevo y cebolla",
+        "claves": "tortilla, españa, papas, huevos, cebolla, plato principal",
+        "thumbnailUrl": "../img/tortilla_de_papas.jpg"
     },
     {
         "precio": 400,
         "id": 10,
         "title": "Wok de Verduras",
-        "thumbnailUrl": "https://greencow.netlify.app/img/wok_de_verduras.jpg"
+        "descripcion": "Salteado al wok de verduras estilo chino.",
+        "claves": "china, verduras, wok, cebolla, zapallo, morron, salsa de soja, calabaza, zanahoria, plato principal",
+        "thumbnailUrl": "../img/wok_de_verduras.jpg"
     },
     {
         "precio": 350,
         "id": 11,
         "title": "Pasta con verduras",
-        "thumbnailUrl": "https://greencow.netlify.app/img/pasta_con_verduras.jpg"
+        "descripcion": "fideos de trigo salteados con verduras y salsa de tomate.",
+        "claves": "salsa, tomates, verduras, fideos, trigo, salteado, plato principal",
+        "thumbnailUrl": "../img/pasta_con_verduras.jpg"
     },
     {
         "precio": 350,
         "id": 12,
         "title": "Espaguetis de calabacin",
-        "thumbnailUrl": "https://greencow.netlify.app/img/espaguetis_de_calabacin.jpg"
+        "descripcion": "Espaguetis de cañabacin acompañados con vegetales con salsa",
+        "claves": "espaguetis, calabacin, fideos, pasta, vegetales, salsa, plato principal",
+        "thumbnailUrl": "../img/espaguetis_de_calabacin.jpg"
     },
     {
         "precio": 400,
         "id": 13,
         "title": "Canelones de espinaca",
-        "thumbnailUrl": "https://greencow.netlify.app/img/canelones_de_espinaca.jpg"
+        "descripcion": "Canelones tradicionales rellenos con espinaca y queso",
+        "claves": "canelones, queso, espinaca, salsa, plato principal",
+        "thumbnailUrl": "../img/canelones_de_espinaca.jpg"
     },
     {
         "precio": 450,
         "id": 14,
         "title": "Tallarines con vegetales al wok",
-        "thumbnailUrl": "https://greencow.netlify.app/img/tallarines_con_vegetales_al_wok.jpg"
+        "descripcion": "Tallarines acompañados con vegetales salteados al wok",
+        "claves": "pasta, wok, vegetales, salteados, plato principal",
+        "thumbnailUrl": "../img/tallarines_con_vegetales_al_wok.jpg"
     },
     {
         "precio": 350,
         "id": 15,
         "title": "Pasta al pesto",
-        "thumbnailUrl": "https://greencow.netlify.app/img/pasta_al_pesto.jpg"
+        "descripcion": "Pasta tradicional con ajo, nueces, aceite de oliva y queso parmesano",
+        "claves": "fideos, pasta, ajo, nueces, oliva, parmesano, queso, plato principal",
+        "thumbnailUrl": "../img/pasta_al_pesto.jpg"
     },
     {
         "precio": 450,
         "id": 16,
         "title": "Sopa de fideos",
-        "thumbnailUrl": "https://greencow.netlify.app/img/sopa_de_fideos.jpg"
+        "descripcion": "Sopa de verduras de estacion con fideos finos de trigo",
+        "claves": "sopa, verdura, fideos, plato entrada",
+        "thumbnailUrl": "../img/sopa_de_fideos.jpg"
     },
     {
         "precio": 300,
         "id": 17,
         "title": "Menestra de verduras",
-        "thumbnailUrl": "https://greencow.netlify.app/img/menestra_de_verduras.jpg"
+        "descripcion": "Guisado de hortalizas y legumbres",
+        "claves": "guisado, menestra, hortalizas, legumbres, plato principal",
+        "thumbnailUrl": "../img/menestra_de_verduras.jpg"
     },
     {
         "precio": 450,
         "id": 18,
         "title": "Souffle de espinacas",
-        "thumbnailUrl": "https://greencow.netlify.app/img/souffle_de_espinacas.jpg"
+        "descripcion": "El suflé es un plato ligero elaborado al horno con una salsa bechamel combinada con yema de huevos y espinacas",
+        "claves": "plato entrada, huevo, souffle, espinacas, bechamel",
+        "thumbnailUrl": "../img/souffle_de_espinacas.jpg"
     },
     {
         "precio": 350,
         "id": 19,
         "title": "Gazpacho",
-        "thumbnailUrl": "https://greencow.netlify.app/img/gazpacho.jpg"
+        "descripcion": "Plato típico de Andalucía a base de tomates maduros, pimiento verde, ajo, pepino, cebolla y miga de pan triturados.",
+        "claves": "tomates, sopa, españa, ajo, pepino, cebolla, gazpacho",
+        "thumbnailUrl": "../img/gazpacho.jpg"
     },
     {
         "precio": 300,
         "id": 20,
         "title": "Ajoblanco",
-        "thumbnailUrl": "https://greencow.netlify.app/img/ajoblanco.jpg"
+        "descripcion": "sopa fría que elaborada con almendras crudas, ajo, miga de pan, aceite de oliva, vinagre y sal.",
+        "claves": "sopa, almendras, ajo, oliva, ajoblanco",
+        "thumbnailUrl": "../img/ajoblanco.jpg"
     },
     {
         "precio": 400,
         "id": 21,
         "title": "Paella de verduras",
-        "thumbnailUrl": "https://greencow.netlify.app/img/paella_de_verduras.jpg"
+        "descripcion": "Version vegetariana de paella tradicional",
+        "claves": "arroz, verduras, españa, paella, plato principal",
+        "thumbnailUrl": "../img/paella_de_verduras.jpg"
     },
     {
         "precio": 350,
         "id": 22,
         "title": "Arroz a la cubana",
-        "thumbnailUrl": "https://greencow.netlify.app/img/arroz_a_la_cubana.jpg"
+        "descripcion": "El plato está compuesto de arroz blanco hervido, acompañado de salsa de tomate, huevo frito y plátano macho maduro frito​",
+        "claves": "arroz, tomate, huevo frito, platano dulce, españa, cuba, plato principal",
+        "thumbnailUrl": "../img/arroz_a_la_cubana.jpg"
+    },
+    {
+        "precio": 200,
+        "id": 23,
+        "title": "Jugo de Naranja",
+        "descripcion": "Jugo natural de naranjas exprimidas con o sin pulpa a elección.",
+        "claves": "bebidas, naranja, exprimido, pulpa, jugo",
+        "thumbnailUrl": "../img/jugo_naranja.jpg"
+    },
+    {
+        "precio": 200,
+        "id": 24,
+        "title": "Jugo de zanahoria",
+        "descripcion": "Jugo natural de zanahorias con o sin pulpa a elección.",
+        "claves": "bebidas, zanahoria, pulpa, jugo",
+        "thumbnailUrl": "../img/jugo_zanahoria.jpg"
+    },
+    {
+        "precio": 200,
+        "id": 25,
+        "title": "Jugo de pepino",
+        "descripcion": "Jugo natural de pepino con o sin pulpa a elección.",
+        "claves": "bebidas, pepino, pulpa, jugo",
+        "thumbnailUrl": "../img/jugo_pepino.jpg"
+    },
+    {
+        "precio": 150,
+        "id": 26,
+        "title": "Agua mineral",
+        "descripcion": "Agua mineral natural del manantial",
+        "claves": "bebidas, agua, mineral",
+        "thumbnailUrl": "../img/agua_mineral.jpg"
+    },
+    {
+        "precio": 500,
+        "id": 27,
+        "title": "Vino Malbec",
+        "descripcion": "Vino de uva malbec en botella de 750cc.",
+        "claves": "bebidas, vino, malbec",
+        "thumbnailUrl": "../img/vino_malbec.jpg"
+    },
+    {
+        "precio": 500,
+        "id": 28,
+        "title": "Vino Chardonnay",
+        "descripcion": "Vino de uva chardonnay en botella de 750cc.",
+        "claves": "bebidas, vino, chardonnay",
+        "thumbnailUrl": "../img/vino_chardonnay.jpg"
     }
 ]
