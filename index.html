@@ -17,14 +17,14 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                    <img src="./svg/Logo.svg" alt="logotipo" width="50%">
+                    <img src="./svg/Logo.svg" alt="logotipo" width="30%">
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form id="registerForm" method="POST" name="registration" class="form-control fondoverdeclaro"
+                    <form id="formularioRegistro" method="POST" name="registration" class="form-control fondoverdeclaro"
                         onsubmit="validarFormulario();" style="display: none">
                         <div>
                             <h1 class="textoverde text-center">Registrarse</h1>
@@ -46,20 +46,18 @@
                             <hr>
                             <div class="d-flex justify-content-center">
                                 <p>Ya tienes cuenta?
-                                    <a class="btn btn-success" href="javascript:void(0);"
-                                        onclick="mostrarOcultar('logIn', 'registerForm')">Ingresar</a></p>
+                                    <a class="btn btn-success" onclick="mostrarOcultar('logIn', 'formularioRegistro')">Ingresar</a></p>
                             </div>
                         </div>
                 </div>
             </div>
             </form>
-            <form id="thankYou" class="form-control" style="display: none">
+            <form id="usuarioRegistrado" class="form-control" style="display: none">
                 <div style="text-align: center">
                     <h1>Gracias por registrarte!</h1>
                     <p>
                         Tu cuenta ya ha sido creada.
-                        <a class="btn btn-success" href="javascript:void(0);"
-                            onclick="mostrarOcultar('logIn', 'thankYou')">Ingresar</a>
+                        <a class="btn btn-success" onclick="mostrarOcultar('logIn', 'usuarioRegistrado')">Ingresar</a>
                     </p>
                 </div>
             </form>
@@ -78,7 +76,7 @@
                     <div class="d-flex justify-content-center">
                         <p> 
                             No tienes cuenta? <a class="btn btn-success"
-                            onclick="mostrarOcultar('registerForm','logIn')">Crear cuenta</a>
+                            onclick="mostrarOcultar('formularioRegistro','logIn')">Crear cuenta</a>
                         </p>
                     </div>                   
                 </div>
@@ -88,7 +86,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./js/acceso.js"></script>
+    <script src="./js/acceso.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

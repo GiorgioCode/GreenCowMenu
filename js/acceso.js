@@ -40,12 +40,13 @@ function verificarEmail(value){
         }
     });
 }
+
 //ACCESO REGISTRO - manejo de vistas acceso registro
-    const form = document.getElementById("registerForm");
+    const form = document.getElementById("formularioRegistro");
     form.addEventListener("submit", function(e){
         e.preventDefault();
         form.reset();
-        document.getElementById("thankYou").style.display="block";
+        document.getElementById("usuarioRegistrado").style.display="block";
         form.style.display="none";
     });
 
@@ -65,14 +66,15 @@ function verificarEmail(value){
         let emailArray =[];
         let passArray=[];
         let result = matchEmail.map((email, i, matchEmail) =>{
-        
            emailArray.push(matchEmail[i].email);
            passArray.push(matchEmail[i].password);
         });
         if(emailArray.indexOf(loginEmail) > -1 && passArray.indexOf(loginPass) > -1){
-            window.location.href = './pages/inicio.html'
+            window.location.href = './pages/sistema.html'
         }else{
-            alert("usuario no registrado")
+            alert("Los datos de usuario son incorrectos, por favor verifique los datos o regístrese");
+            mostrarOcultar('formularioRegistro','logIn'); //cambia vista a formulario de registro
+
         }
       
     }

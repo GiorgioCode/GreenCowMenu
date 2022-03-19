@@ -16,7 +16,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top fondoverde">
 			<div class="container-fluid">
-				<a class="navbar-brand gradienteverde" href="inicio.html">GreenCow</a>
+				<a class="navbar-brand gradienteverde">GreenCow</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -24,15 +24,13 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav me-auto mb-md-0">
 						<li class="nav-item text-center d-flex align-items-center justify-content-center">
-							<a class="nav-link" aria-current="page" href="inicio.html"><i
-									class="bi bi-menu-app-fill"></i> Inicio</a>
-						</li>
-						<li class="nav-item text-center d-flex align-items-center justify-content-center">
-							<a class="nav-link" aria-current="page" href="mesas.html"><i class="bi bi-menu-down"></i>
+							<a class="nav-link" aria-current="page" data-bs-toggle="modal"
+								data-bs-target="#modalMesas"><i class="bi bi-menu-down"></i>
 								Mesas</a>
 						</li>
 						<li class="nav-item text-center d-flex align-items-center justify-content-center">
-							<a class="nav-link" aria-current="page" href="../index.html"><i class="bi bi-menu-down"></i>
+							<a class="nav-link" aria-current="page" data-bs-toggle="modal"
+								data-bs-target="#modalCambioUsuario"><i class="bi bi-menu-down"></i>
 								Cambiar Usuario</a>
 						</li>
 						<span id="mesero"></span>
@@ -47,21 +45,22 @@
 					<button type="button" id="botonCambiar" class="btn btn-outline-info text-white"> Resumen</button>
 				</div>
 				<div class="col-3">
-					<button type="button" id="botonCerrar" class="btn btn-outline-warning text-white"> Facturar</button>
+					<button type="button" id="botonCerrar" class="btn btn-outline-warning text-white"
+						onclick="alert('funcion en desarrollo');"> Facturar</button>
 				</div>
 				<div class="col-6">
-					<input class="form-control buscarProductos" list="datalistOptions"
-					id="exampleDataList" placeholder="Buscar Productos">
-						<datalist id="datalistOptions">
-							<option value="bebidas">
-							<option value="plato principal">
-							<option value="plato entrada">
-							<option value="arroz">
-							<option value="vegetales">
-							<option value="fideos">
-							<option value="wok">
-							<option value="tarta">
-						</datalist>
+					<input class="form-control buscarProductos" list="datalistOptions" id="exampleDataList"
+						placeholder="Buscar Productos">
+					<datalist id="datalistOptions">
+						<option value="bebidas">
+						<option value="plato principal">
+						<option value="plato entrada">
+						<option value="arroz">
+						<option value="vegetales">
+						<option value="fideos">
+						<option value="wok">
+						<option value="tarta">
+					</datalist>
 				</div>
 			</div>
 		</nav>
@@ -99,7 +98,7 @@
 			<div class="my-5 invisible" id="resumen">
 				<div class="separador"></div>
 				<h4>Resumen de consumos de la mesa</h4>
-				<table class="table table-dark table-striped">
+				<table class="table table-success table-striped">
 					<thead>
 						<tr>
 							<th scope="col">#</th>
@@ -118,19 +117,49 @@
 				</table>
 			</div>
 		</div>
+		<!-- MODAL PREGUNTA CAMBIO DE USUARIO-->
+		<div class="modal fade" id="modalCambioUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">CAMBIAR DE USUARIO</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Esta seguro que desea cambiar de usuario?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, mantener
+							usuario.</button>
+						<a class="btn btn-success" href="../index.html">Cambiar de usuario</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- MODAL MESAS-->
+		<div class="modal fade" id="modalMesas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">UBICACION DE MESAS</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<img src="../svg/mesas.svg" width="100%" alt="">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!--HTML TEMPLATES-->
-		<template id="template-footer">
-			<th scope="row" colspan="2">Total consumos</th>
-			<td>10</td>
-			<td>
-				<button class="btn btn-outline-danger btn-sm" id="vaciar-resumen">
-					<i class="bi bi-trash"></i>
-				</button>
-			</td>
-			<td class="font-weight-bold">$ <span>5000</span></td>
-		</template>
+
 
 		<template id="template-resumen">
+			<!--html template de tabla resumen-->
 			<tr>
 				<th scope="row">id</th>
 				<td>Café</td>
@@ -145,6 +174,32 @@
 				</td>
 				<td>$ <span>500</span></td>
 			</tr>
+		</template>
+		<template id="template-footer">
+			<!--html template de footer de tabla resumen-->
+			<th scope="row" colspan="2">Total consumos</th>
+			<td>10</td>
+			<td>
+				<button class="btn btn-outline-danger btn-sm" id="vaciar-resumen">
+					<i class="bi bi-trash"></i>
+				</button>
+			</td>
+			<td class="font-weight-bold">$ <span>5000</span></td>
+		</template>
+		<template id="template-factura">
+			<!--html template de tabla factura-->
+			<tr>
+				<th scope="row">id</th>
+				<td>Café</td>
+				<td>1</td>
+				<td>$ <span>500</span></td>
+			</tr>
+		</template>
+		<template id="template-footer-factura">
+			<!--html template de footer de tabla factura-->
+			<th scope="row" colspan="2">Total consumos</th>
+			<td>10</td>
+			<td class="font-weight-bold">$ <span>5000</span></td>
 		</template>
 	</main>
 	<footer class="container-fluid fondoverdeclaro">
@@ -165,7 +220,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
-	<script type="module" src="../js/main.js"></script>
+	<script src="../js/acceso.js"></script>
+	<script src="../js/main.js"></script>
 </body>
 
 </html>

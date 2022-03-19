@@ -170,18 +170,18 @@ const accionBotones = () => {
     })
 }
 
-
-//Busqueda de platos
+//BUSCADOR DE PRODUCTOS
 const d = document
 function filtroProductos(input,selector) {
-    d.addEventListener("keydown", (e) => {
-            let entradaMinuscula = e.target.value.toLowerCase()
+    d.addEventListener("keydown", (e) => { //se eleigió keydown porque funciona mejor con celulares (o al menos eso vi probandolo)
+            let entradaMinuscula = e.target.value.toLowerCase() //manda a minusculas las entradas del input
             if(e.target.matches(input)){
-            d.querySelectorAll(selector).forEach((el)=>
-            el.textContent.toLowerCase().includes(entradaMinuscula)
-            ?el.classList.remove("filtrar")
-            :el.classList.add("filtrar")
+            d.querySelectorAll(selector).forEach((el)=> //recorre cada elemento selector (tarjetas)
+            el.textContent.toLowerCase().includes(entradaMinuscula) //manda a minusculas el contenido de las tarjetas y compara con el input
+            ?el.classList.remove("filtrar") //visibiliza tarjetas
+            :el.classList.add("filtrar") //esconde tarjetas
             );
         }
     })
 }
+
