@@ -35,6 +35,7 @@ boton.addEventListener("click", () => {
     }
 })
 
+//generador de tarjetas de productos
 const contendorProductos = document.querySelector('#contenedor-productos')
 const mostrarPlatos = (data) => { //Funcion para cargar datos del JSON en forma de tarjetas en el HTML
     const template = document.querySelector('#template-productos').content
@@ -54,6 +55,7 @@ const mostrarPlatos = (data) => { //Funcion para cargar datos del JSON en forma 
 
 let resumen = {}
 
+//boton agregar producto a la mesa
 const detectarBotones = (data) => { //escuchar botones de tarjetas para agregar el plato a la mesa
     const botones = document.querySelectorAll('.card button')
 
@@ -172,7 +174,7 @@ const accionBotones = () => {
 //Busqueda de platos
 const d = document
 function filtroProductos(input,selector) {
-    d.addEventListener("keyup", (e) => {
+    d.addEventListener("keydown", (e) => {
         if(e.target.matches(input)){
             d.querySelectorAll(selector).forEach((el)=>
             el.textContent.toLowerCase().includes(e.target.value)
