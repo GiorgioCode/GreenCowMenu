@@ -16,25 +16,31 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top fondoverde">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html"><img class="logotipo" src="./svg/Logo.svg" alt="logo"
-						width="30%"></a>
+				<a class="navbar-brand gradienteverde" href="inicio.html">GreenCow</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav me-auto mb-2 mb-md-0">
-						<li class="nav-item text-center">
-							<a class="nav-link h4" aria-current="page" href="index.html"><i
+					<ul class="navbar-nav me-auto mb-md-0">
+						<li class="nav-item text-center d-flex align-items-center justify-content-center">
+							<a class="nav-link" aria-current="page" href="inicio.html"><i
 									class="bi bi-menu-app-fill"></i> Inicio</a>
 						</li>
-						<li class="nav-item text-center">
-							<a class="nav-link h4" aria-current="page" href="mesas.html"><i class="bi bi-menu-down"></i>
+						<li class="nav-item text-center d-flex align-items-center justify-content-center">
+							<a class="nav-link" aria-current="page" href="mesas.html"><i class="bi bi-menu-down"></i>
 								Mesas</a>
 						</li>
-						<li class="nav-item text-center px-3">
-							<a class="btn btn-lg bg-success text-white" href="sistema.html"> Cargar Pedido</a>
+						<li class="nav-item text-center d-flex align-items-center justify-content-center">
+							<a class="nav-link" aria-current="page" href="sistema.html"><i class="bi bi-menu-down"></i>
+								Cargar Pedido</a>
 						</li>
+						<li class="nav-item text-center d-flex align-items-center justify-content-center">
+							<a class="nav-link" aria-current="page" href="../index.html"><i class="bi bi-menu-down"></i>
+								Cambiar Usuario</a>
+						</li>
+						<span id="mesero"></span>
+
 					</ul>
 				</div>
 			</div>
@@ -44,15 +50,21 @@
 		<div class="separador"></div>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="textoverde d-flex justify-content-center">
-					<h1>Distribución y ubicación de mesas</h1>
-				</div>
-				<div class="textoverde d-flex justify-content-center">
-					<img width="100%" src="./svg/mesas.svg" alt="Ubicacion mesas">
+				<div class="textoverde d-flex justify-content-center text-center">
+					<h1>Sistema de gestion de consumos y facturación</h1>
 				</div>
 			</div>
 		</div>
-
+		<div class="container-fluid">
+			<div class="row">
+				<div class="d-flex justify-content-center text-center">
+					<a href="./mesas.html" class="py-2 m-2 btn btn-lg bg-success text-white">Diagrama de mesas</a>
+				</div>
+				<div class="d-flex justify-content-center text-center">
+					<a href="./sistema.html#cargar" class="py-2 m-2 btn btn-lg bg-success text-white">Iniciar carga de pedido</a>
+				</div>
+			</div>
+		</div>
 	</main>
 	<footer class="container-fluid fondoverdeclaro">
 		<div class="d-flex justify-content-end align-items-center py-1 my-1 ">
@@ -61,11 +73,11 @@
 			</div>
 			<div>
 				<a class="textoverdehover px-1" href="https://twitter.com/giorgio_code" target="_blank"><i
-						class="bi bi-twitter"></i></a>
-			</div>
+					class="bi bi-twitter"></i></a>
+			</div>		
 			<div>
 				<a class="textoverdehover px-1" href="https://github.com/GiorgioCode" target="_blank"><i
-						class="bi bi-github"></i></a>
+					class="bi bi-github"></i></a>
 			</div>
 
 		</div>
@@ -73,7 +85,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
-	<script src="script.js"></script>
+	<script type="module" src="../js/main.js"></script>
 </body>
 
 </html>

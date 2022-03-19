@@ -1,85 +1,94 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
-	<link rel="stylesheet" href="./css/style.css" />
-	<title>Proyecto Final - EN PROCESO</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Proyecto Final - EN PROCESO</title>
 </head>
 
-<body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top fondoverde">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html"><img class="logotipo" src="./svg/Logo.svg" alt="logo"
-						width="30%"></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav me-auto mb-2 mb-md-0">
-						<li class="nav-item text-center">
-							<a class="nav-link h4" aria-current="page" href="index.html"><i
-									class="bi bi-menu-app-fill"></i> Inicio</a>
-						</li>
-						<li class="nav-item text-center">
-							<a class="nav-link h4" aria-current="page" href="mesas.html"><i class="bi bi-menu-down"></i>
-								Mesas</a>
-						</li>
-						<li class="nav-item text-center px-3">
-							<a class="btn btn-lg bg-success text-white" href="sistema.html"> Cargar Pedido</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<main>
-		<div class="separador"></div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="textoverde d-flex justify-content-center text-center">
-					<h1>Sistema de gestion de consumos y facturación</h1>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="d-flex justify-content-center text-center">
-					<a href="./mesas.html" class="py-2 m-2 btn btn-lg bg-success text-white">Diagrama de mesas</a>
-				</div>
-				<div class="d-flex justify-content-center text-center">
-					<a href="./sistema.html#cargar" class="py-2 m-2 btn btn-lg bg-success text-white">Iniciar carga de pedido</a>
-				</div>
-			</div>
-		</div>
-	</main>
-	<footer class="container-fluid fondoverdeclaro">
-		<div class="d-flex justify-content-end align-items-center py-1 my-1 ">
-			<div>
-				<span class="textoverde px-3">&copy; 2022 - Jorge Angel PAEZ
-			</div>
-			<div>
-				<a class="textoverdehover px-1" href="https://twitter.com/giorgio_code" target="_blank"><i
-					class="bi bi-twitter"></i></a>
-			</div>		
-			<div>
-				<a class="textoverdehover px-1" href="https://github.com/GiorgioCode" target="_blank"><i
-					class="bi bi-github"></i></a>
-			</div>
+<body class="fondoverde">
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <img src="./svg/Logo.svg" alt="logotipo" width="50%">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form id="registerForm" method="POST" name="registration" class="form-control fondoverdeclaro"
+                        onsubmit="validateForm();" style="display: none">
+                        <div>
+                            <h1 class="textoverde text-center">Registrarse</h1>
+                            <input  class="form-control" type="text" name="Name" id="uName" placeholder="Ingrese su nombre" required /><br>
 
-		</div>
-	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
-	<script src="script.js"></script>
+                            <input  class="form-control" type="email" name="Email" id="uEmail" placeholder="Ingrese su email"
+                                oninput="emailExist(this)" required /><br>
+
+                            <input  class="form-control" type="password" name="Password" id="uPassword" placeholder="Ingrese password"
+                                pattern=".{0}|.{6,}" required /><br>
+                            <p>minimo SEIS(6) caracteres</p>
+
+                            <input  class="form-control" type="password" name="Confirm Password" id="confirmPassword"
+                                placeholder="Confirme password" oninput="verifyPassword(this)" required /><br>
+                                
+                            <div class="d-flex justify-content-center">
+                                <button class="btn btn-lg btn-success" type="submit" id="submit">Registrarse</button>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-center">
+                                <p>Ya tienes cuenta?
+                                    <a class="btn btn-success" href="javascript:void(0);"
+                                        onclick="showHide('logIn', 'registerForm')">Ingresar</a></p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </form>
+            <form id="thankYou" class="form-control" style="display: none">
+                <div style="text-align: center">
+                    <h1>Gracias por registrarte!</h1>
+                    <p>
+                        Tu cuenta ya ha sido creada.
+                        <a class="btn btn-success" href="javascript:void(0);"
+                            onclick="showHide('logIn', 'thankYou')">Ingresar</a>
+                    </p>
+                </div>
+            </form>
+            <form name="login" id="logIn" method="POST" class="form-control fondoverdeclaro" onsubmit="loginUser();"
+                >
+                <div>
+                    <h1 class="text-center textoverde">Acceso</h1>
+                    <input class="form-control" type="email" id="uemailId" placeholder="Ingrese su email" required /><br>
+                    <input class="form-control" type="password" id="ePassword" placeholder="Ingrese su password" required /><br>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-lg btn-success" type="submit" id="login">
+                            Ingresar
+                        </button>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <p> 
+                            No tienes cuenta? <a class="btn btn-success"
+                            onclick="showHide('registerForm','logIn')">Crear cuenta</a>
+                        </p>
+                    </div>                   
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/acceso.js"></script>
 </body>
 
 </html>

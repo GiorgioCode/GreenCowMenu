@@ -1,18 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchDatos() //llama a funcion para traer datos del JSON
+    filtroProductos(".buscarProductos",".card")
 })
 
-const fetchDatos = async () => {//Funcion para traer platos disponibles desde JSON
+const fetchDatos = async () => {//Funcion para traer platos disponibles desde archivo JSON
     try {
-        const res = await fetch('bd.json')
+        const res = await fetch('../database/db.json')
         const data = await res.json()
-        // console.log(data)
         mostrarPlatos(data)
         detectarBotones(data)
     } catch (error) {
         console.log(error)
     }
 }
+
+const boton = document.getElementById('botonCambiar');
+
+//manejo de vistas platos y resumen
+boton.addEventListener("click", () => {
+        if (boton.textContent == ' Resumen') {
+        const platos = document.getElementById('contenedorPlatos');
+        platos.className = 'container-fluid invisible'
+        const resumen = document.getElementById('resumen');
+        resumen.className = 'my-5'
+        const boton = document.getElementById('botonCambiar');
+        boton.textContent = ' Ordenar'
+    } else if (boton.textContent == " Ordenar"){
+        const platos = document.getElementById('contenedorPlatos');
+        platos.className = 'container-fluid'
+        const resumen = document.getElementById('resumen');
+        resumen.className = 'my-5 invisible'
+        const boton = document.getElementById('botonCambiar');
+        boton.textContent = ' Resumen'
+    }
+})
 
 const contendorProductos = document.querySelector('#contenedor-productos')
 const mostrarPlatos = (data) => { //Funcion para cargar datos del JSON en forma de tarjetas en el HTML
@@ -145,21 +166,17 @@ const accionBotones = () => {
     })
 }
 
-function CambiarPlatosResumen() { //Funcion para cambiar visibilidad de Resumen o de Productos
-    const boton = document.getElementById('botonCambiar');
-    if (boton.textContent == ' Ver Resumen') {
-        const platos = document.getElementById('contenedorPlatos');
-        platos.className = 'container-fluid invisible'
-        const resumen = document.getElementById('resumen');
-        resumen.className = 'my-5'
-        const boton = document.getElementById('botonCambiar');
-        boton.textContent = ' Cargar Pedido'
-    } else if (boton.textContent == " Cargar Pedido"){
-        const platos = document.getElementById('contenedorPlatos');
-        platos.className = 'container-fluid'
-        const resumen = document.getElementById('resumen');
-        resumen.className = 'my-5 invisible'
-        const boton = document.getElementById('botonCambiar');
-        boton.textContent = ' Ver Resumen'
-    }
+
+//Busqueda de platos
+const d = document
+function filtroProductos(input,selector) {
+    d.addEventListener("keyup", (e) => {
+        if(e.target.matches(input)){
+            d.querySelectorAll(selector).forEach((el)=>
+            el.textContent.toLowerCase().includes(e.target.value)
+            ?el.classList.remove("filtrar")
+            :el.classList.add("filtrar")
+            );
+        }
+    })
 }

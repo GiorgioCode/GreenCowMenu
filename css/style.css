@@ -6,8 +6,6 @@
 
 body {
 	background-color: whitesmoke;
-	min-height: 75rem;
-	padding-top: 4.5rem;
 }
 
 .fondoverde {
@@ -40,34 +38,61 @@ footer {
 	bottom: 0px;
 	z-index: 3;
 }
+
+
+/* Render items as columns */
+#contenedor-productos {
+	display: flex;
+	flex-flow:initial nowrap;
+}
+
+.card {
+	min-width: 300px;
+	max-width: 500px;
+}
+
+.filtrar {
+	visibility: hidden;
+	opacity: 0;
+	display: none;
+}
+
+.barrabusqueda {
+	position: fixed;
+	top: 64px;
+	z-index: 2;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 .filtros {
 	position: fixed;
 	top: 110px;
 	z-index: 5;
 }
-.botonmodal {
-	z-index: 7;
-}
-.modal {
-	z-index: 10;
-}
+
 .navbar {
-	z-index: 2;
+	z-index: 3;
 }
+
 .invisible {
 	display: none;
 }
+.nav-link {
+	font-size: 1.3rem;
+}
 
 /*GRADIENTE ANIMADO TEXTO*/
-.textogradiente {
-	color: #7431dd;
+
+.gradienteverde {
+	color: #4fe056;
 	background: linear-gradient(
 		to right,
-		#dd31dd 20%,
-		#7431dd 40%,
-		#0082e6 60%,
-		#dd31dd 80%
+		#2daf0d 20%,
+		#1f3615 40%,
+		#04b313 60%,
+		#0eac0e 80%
 	);
+	font-size: 1.6rem;
 	background-size: 200% auto;
 	text-decoration: bold;
 	color: #000;
@@ -75,9 +100,8 @@ footer {
 	text-fill-color: transparent;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	animation: shine 5s linear infinite;
+	animation: shine 2s linear infinite;
 }
-
 @keyframes shine {
 	to {
 		background-position: 200% center;
