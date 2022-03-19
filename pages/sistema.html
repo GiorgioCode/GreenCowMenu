@@ -50,7 +50,18 @@
 					<button type="button" id="botonCerrar" class="btn btn-outline-warning text-white"> Facturar</button>
 				</div>
 				<div class="col-6">
-					<input style="text-transform:lowercase;" type="search" class="form-control buscarProductos" name="" id="exampleDataList" placeholder="Buscar prductos">
+					<input style="text-transform:lowercase;" class="form-control buscarProductos" list="datalistOptions"
+					id="exampleDataList" placeholder="Buscar Productos">
+						<datalist id="datalistOptions">
+							<option value="bebidas">
+							<option value="plato principal">
+							<option value="plato entrada">
+							<option value="arroz">
+							<option value="vegetales">
+							<option value="pastas">
+							<option value="wok">
+							<option value="tarta">
+						</datalist>
 				</div>
 			</div>
 		</nav>
