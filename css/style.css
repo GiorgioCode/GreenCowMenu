@@ -39,16 +39,21 @@ footer {
 	z-index: 3;
 }
 
-
-/* Render items as columns */
-#contenedor-productos {
+#contenedor-productos { 
 	display: flex;
-	flex-flow:initial nowrap;
+	flex-flow: row wrap;
+	margin-left: -8px;
+	width: 100%;
+	align-items: center;
+	justify-content: space-evenly;
 }
-
+  
 .card {
-	min-width: 300px;
-	max-width: 500px;
+	flex: auto;
+	height: fit-content;
+	max-width: 400px;
+	min-width: 200px;
+	margin: 0 8px 8px 0;
 }
 
 .filtrar {
