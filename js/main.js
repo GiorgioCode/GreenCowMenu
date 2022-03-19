@@ -175,9 +175,10 @@ const accionBotones = () => {
 const d = document
 function filtroProductos(input,selector) {
     d.addEventListener("keydown", (e) => {
-        if(e.target.matches(input)){
+            let entradaMinuscula = e.target.value.toLowerCase()
+            if(e.target.matches(input)){
             d.querySelectorAll(selector).forEach((el)=>
-            el.textContent.toLowerCase().includes(e.target.value)
+            el.textContent.toLowerCase().includes(entradaMinuscula)
             ?el.classList.remove("filtrar")
             :el.classList.add("filtrar")
             );
