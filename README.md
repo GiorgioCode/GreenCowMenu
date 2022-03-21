@@ -24,16 +24,17 @@ PROBLEMATICA:
 > * Diseño de logotipo del restaurante.
 > * Seleccion de platos y asignacion a una mesa
 > * generador de resumen de una mesa con capacidad de modificar cantidades de platos asignados y vaciar mesa.
-
-***
-
->TAREAS PENDIENTES:
 > * Modificar grid de platos para admitis imagenes de diferentes tamaños.
 > * Filtrado de platos por clases (pastas/arroz/etnicos/tartas/tortillas).
 > * Aumentar Base de Datos con mayor cantidad de platos
+> * Login de acceso y registro (Sin base de datos, con Localstorage)
+> * Asignacion de perfil segun mesero (en proceso)
+> * mejoras en usabilidad y simplificacion de flujo de trabajo.
+***
+
+>TAREAS PENDIENTES:
 > * Sistema de facturación e impresión
-> * control de errores y mejoras de rendimiento
-> * Conteo independiente de mesas
-> * Asignacion de perfil segun mesero
+> * control de errores y mejoras de rendimiento (en proceso)
+> * Conteo independiente de mesas segun usuario activo.
 ***
 [VER CÓDIGO](https://github.com/GiorgioCode/GreenCowMenu/blob/master/index.html) - [VER EJEMPLO](https://greencow.netlify.app/)
