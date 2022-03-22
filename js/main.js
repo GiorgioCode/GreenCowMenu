@@ -73,7 +73,18 @@ const detectarBotones = (data) => {
 				producto.cantidad = resumen[producto.id].cantidad + 1;
 			}
 			resumen[producto.id] = { ...producto };
-			alert("Agregado " + producto.title + " a la mesa."); //confirmacion plato agregado
+			Toastify({
+				text: "Agregado " + producto.title + " a la mesa.",
+				className: "info",
+				gravity: "bottom", // `top` or `bottom`
+				position: "right", // `left`, `center` or `right`
+				offset: {
+					y: 30 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+				  },
+				style: {
+				  background: "linear-gradient(to right, #198754, #558a3f)",
+				}
+			  }).showToast();
 			mostrarResumen();
 		});
 	});
