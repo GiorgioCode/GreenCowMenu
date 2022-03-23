@@ -30,10 +30,13 @@ PROBLEMATICA:
 > * Login de acceso y registro (Sin base de datos, con Localstorage)
 > * Asignacion de perfil segun mesero (en proceso)
 > * mejoras en usabilidad y simplificacion de flujo de trabajo.
+> * incorporado generador de factura (en proceso)
+> * incorporado generador de codigo de barra a la factura (al momento con numero aleatorio) de https://lindell.me/JsBarcode/
+> * mostrar ID de usuario vigente
 ***
 
 >TAREAS PENDIENTES:
-> * Sistema de facturación e impresión
+> * mejora de formato de factura y agregar funcionalidad de impresion de factura
 > * control de errores y mejoras de rendimiento (en proceso)
 > * Conteo independiente de mesas segun usuario activo.
 ***

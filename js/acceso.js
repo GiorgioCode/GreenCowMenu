@@ -9,6 +9,7 @@ function validarFormulario() {
 		password: document.getElementById("uPassword").value,
 		confirmpassword: document.getElementById("confirmPassword").value,
 	};
+
 	data.push(formData);
 
 	if (localStorage) {
@@ -59,12 +60,15 @@ function mostrarOcultar(mostrar, ocultar) {
 
 //ACCESO REGISTRO - login y acceso
 function loginUser() {
+	localStorage.removeItem("mailActual"); //limpiar datos usuario anterior de localstorage
 	let loginEmail = document.getElementById("uemailId").value;
 	let loginPass = document.getElementById("ePassword").value;
 	let matchEmail = JSON.parse(localStorage.getItem("datosGuardados"));
 	let emailArray = [];
 	let passArray = [];
-	let result = matchEmail.map((email, i, matchEmail) => {
+	let nameArray = [];
+
+	const result = matchEmail.map((email, i, matchEmail) => {
 		emailArray.push(matchEmail[i].email);
 		passArray.push(matchEmail[i].password);
 	});
@@ -72,6 +76,7 @@ function loginUser() {
 		emailArray.indexOf(loginEmail) > -1 &&
 		passArray.indexOf(loginPass) > -1
 	) {
+		localStorage.setItem("mailActual", loginEmail) //en caso de validar, cargar datos nombre usuario actual en localstorage
 		window.location.href = "./pages/sistema.html";
 	} else {
 		alert(
@@ -84,3 +89,4 @@ const loginForm = document.getElementById("logIn");
 loginForm.addEventListener("submit", function (e) {
 	e.preventDefault();
 });
+

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	fetchDatos(); //llama a funcion para traer datos del JSON
 	filtroProductos(".buscarProductos", ".card");
+	actualUsuario();
 });
 
 const fetchDatos = async () => {
@@ -15,6 +16,7 @@ const fetchDatos = async () => {
 	}
 };
 
+
 const boton = document.getElementById("botonCambiar");
 
 //manejo de vistas platos y resumen
@@ -26,6 +28,8 @@ boton.addEventListener("click", () => {
 		resumen.className = "my-5";
 		const boton = document.getElementById("botonCambiar");
 		boton.textContent = " Ordenar";
+		const factura = document.getElementById("factura");
+		factura.className = "my-5 invisible";
 	} else if (boton.textContent == " Ordenar") {
 		const platos = document.getElementById("contenedorPlatos");
 		platos.className = "container-fluid";
@@ -33,8 +37,23 @@ boton.addEventListener("click", () => {
 		resumen.className = "my-5 invisible";
 		const boton = document.getElementById("botonCambiar");
 		boton.textContent = " Resumen";
+		const factura = document.getElementById("factura");
+		factura.className = "my-5 invisible";
 	}
 });
+
+const boton2 = document.getElementById("botonFacturar");
+
+//manejo de vistas platos y resumen
+boton2.addEventListener("click", () => {
+	const platos = document.getElementById("contenedorPlatos");
+	platos.className = "container-fluid invisible";
+	const resumen = document.getElementById("resumen");
+	resumen.className = "my-5 invisible";
+	const factura = document.getElementById("factura");
+	factura.className = "my-5";
+	}
+);
 
 //generador de tarjetas de productos
 const contendorProductos = document.querySelector("#contenedor-productos");
@@ -86,6 +105,7 @@ const detectarBotones = (data) => {
 				}
 			  }).showToast();
 			mostrarResumen();
+			mostrarFactura();
 		});
 	});
 };
@@ -119,6 +139,31 @@ const mostrarResumen = () => {
 
 	pintarFooter();
 	accionBotones();
+};
+
+const itemsfactura = document.querySelector("#itemsfactura");
+const mostrarFactura = () => {
+	//muestra resumen de lo cargado en la mesa
+
+	itemsfactura.innerHTML = "";
+
+	const template2 = document.querySelector("#template-factura").content;
+	const fragment2 = document.createDocumentFragment();
+
+	Object.values(resumen).forEach((producto) => {
+		template2.querySelector("th").textContent = producto.id;
+		template2.querySelectorAll("td")[0].textContent = producto.title;
+		template2.querySelectorAll("td")[1].textContent = producto.cantidad;
+		template2.querySelector("span").textContent =
+			producto.precio * producto.cantidad;
+		const clone = template2.cloneNode(true);
+		fragment2.appendChild(clone);
+	});
+
+	itemsfactura.appendChild(fragment2);
+	const aleatorio = Math.random() * 10000000000000000;
+	JsBarcode("#barcode", aleatorio);
+	pintarFooterFactura();
 };
 
 const footer = document.querySelector("#footer-resumen");
@@ -160,6 +205,30 @@ const pintarFooter = () => {
 	});
 };
 
+const footerFactura = document.querySelector("#footer-resumen-factura");
+const pintarFooterFactura = () => {
+	footerFactura.innerHTML = "";
+
+
+	const template2 = document.querySelector("#template-footer-factura").content;
+	const fragment2 = document.createDocumentFragment();
+	const nCantidad = Object.values(resumen).reduce(
+		(acc, { cantidad }) => acc + cantidad,
+		0
+	);
+	const nPrecio = Object.values(resumen).reduce(
+		(acc, { cantidad, precio }) => acc + cantidad * precio,
+		0
+	);
+	template2.querySelectorAll("td")[0].textContent = nCantidad;
+	template2.querySelector("span").textContent = nPrecio;
+
+	const clone = template2.cloneNode(true);
+	fragment2.appendChild(clone);
+
+	footerFactura.appendChild(fragment2);
+};
+
 const accionBotones = () => {
 	const botonesAgregar = document.querySelectorAll("#items .btn-info");
 	const botonesEliminar = document.querySelectorAll("#items .btn-danger");
@@ -170,6 +239,7 @@ const accionBotones = () => {
 			producto.cantidad++;
 			resumen[btn.dataset.id] = { ...producto };
 			mostrarResumen();
+			mostrarFactura();
 		});
 	});
 
@@ -183,18 +253,18 @@ const accionBotones = () => {
 				resumen[btn.dataset.id] = { ...producto };
 			}
 			mostrarResumen();
+			mostrarFactura();
 		});
 	});
 };
 
 //BUSCADOR DE PRODUCTOS
-const d = document;
 function filtroProductos(input, selector) {
-	d.addEventListener("keydown", (e) => {
+	document.addEventListener("keydown", (e) => {
 		//se eleigió keydown porque funciona mejor con celulares (o al menos eso vi probandolo)
 		let entradaMinuscula = e.target.value.toLowerCase(); //manda a minusculas las entradas del input
 		if (e.target.matches(input)) {
-			d.querySelectorAll(selector).forEach(
+			document.querySelectorAll(selector).forEach(
 				(
 					el //recorre cada elemento selector (tarjetas)
 				) =>
@@ -205,3 +275,8 @@ function filtroProductos(input, selector) {
 		}
 	});
 }
+
+function actualUsuario() {
+	const mailUsuarioActual = document.getElementById("mailmesero");
+	mailUsuarioActual.textContent = localStorage.getItem("mailActual");
+};

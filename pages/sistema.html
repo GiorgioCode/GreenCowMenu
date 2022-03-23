@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
 	<link rel="stylesheet" href="../css/style.css" />
+	<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
 	<title>Proyecto Final - EN PROCESO</title>
 </head>
 
@@ -34,7 +35,9 @@
 								data-bs-target="#modalCambioUsuario"><i class="bi bi-menu-down"></i>
 								Cambiar Usuario</a>
 						</li>
-						<span id="mesero"></span>
+						<li>
+							<span class="lead text-white m-3">Usuario: </span><span class="text-white" id="mailmesero">mail</span>
+						</li>
 
 					</ul>
 				</div>
@@ -46,8 +49,7 @@
 					<button type="button" id="botonCambiar" class="btn btn-outline-info text-white"> Resumen</button>
 				</div>
 				<div class="col-3">
-					<button type="button" id="botonCerrar" class="btn btn-outline-warning text-white"
-						onclick="alert('funcion en desarrollo');"> Facturar</button>
+					<button type="button" id="botonFacturar" class="btn btn-outline-warning text-white"> Facturar</button>
 				</div>
 				<div class="col-6">
 					<input class="form-control buscarProductos" list="datalistOptions" id="exampleDataList"
@@ -68,34 +70,38 @@
 	</header>
 	<main>
 		<div class="separador"></div>
+		<!--FACTURACION DE LA MESA-->
+		<div class="container">
+			<div class="my-5 invisible" id="factura">
+				<div class="separador"></div>
+				<h4 class="text-center">FACTURA</h4>
+				<table class="table table-white table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Item</th>
+							<th scope="col">Cant.</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody id="itemsfactura"></tbody>
+					<tfoot>
+						<tr id="footer-resumen-factura">
+							<th scope="row" colspan="5">No se registran consumos en la mesa</th>
+						</tr>
+					</tfoot>
+				</table>
+				<div class="separador"></div>
+				<svg id="barcode"></svg>
+			</div>
+		</div>
 		<div id="contenedorPlatos">
-			<!--Aparecen productos para cargar a la mesa-->
+			<!--TARJETAS CON DESCRIPCIONES DE PLATOS Y BOTON DE SELECCION-->
 			<div class="separador"></div>
 			<div id="contenedor-productos"></div>
 		</div>
-
+		<!--RESUMEN DE CONSUMOS DE LA MESA-->
 		<div class="container">
-			<template id="template-productos">
-				<!--template modelo de tarjeta producto-->
-				<div>
-					<div class="shadow p-3 mb-3 bg-body rounded card">
-						<img src="" class="card-img-top img-fluid img-thumbnail" alt="...">
-						<div class="d-flex flex-column justify-content-center">
-
-							<h3 class="text-center textoverde">
-								Café
-							</h3>
-							<p class="descripcion h6 text-center"> cafe</p>
-							<p class="claves text-center"> cafe</p>
-							<p class="text-center textoverde h3">$ <span>5000</span></p>
-
-							<button class="btn btn-success text-center">
-								<i class="bi bi-plus-square"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-			</template>
 			<div class="my-5 invisible" id="resumen">
 				<div class="separador"></div>
 				<h4>Resumen de consumos de la mesa</h4>
@@ -118,6 +124,7 @@
 				</table>
 			</div>
 		</div>
+		
 		<!-- MODAL PREGUNTA CAMBIO DE USUARIO-->
 		<div class="modal fade" id="modalCambioUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 			aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -158,6 +165,27 @@
 		</div>
 
 		<!--HTML TEMPLATES-->
+		<template id="template-productos">
+			<!--template modelo de tarjeta producto-->
+			<div>
+				<div class="shadow p-3 mb-3 bg-body rounded card">
+					<img src="" class="card-img-top img-fluid img-thumbnail" alt="...">
+					<div class="d-flex flex-column justify-content-center">
+
+						<h3 class="text-center textoverde">
+							Café
+						</h3>
+						<p class="descripcion h6 text-center"> cafe</p>
+						<p class="claves text-center"> cafe</p>
+						<p class="text-center textoverde h3">$ <span>5000</span></p>
+
+						<button class="btn btn-success text-center">
+							<i class="bi bi-plus-square"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</template>
 		<template id="template-resumen">
 			<!--html template de tabla resumen-->
 			<tr>
