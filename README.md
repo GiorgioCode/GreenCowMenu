@@ -33,10 +33,11 @@ PROBLEMATICA:
 > * incorporado generador de factura (en proceso)
 > * incorporado generador de codigo de barra a la factura (al momento con numero aleatorio) de https://lindell.me/JsBarcode/
 > * mostrar ID de usuario vigente
+> * Funcionalidad de impresion de factura y reseteo de la mesa atendida
 ***
 
 >TAREAS PENDIENTES:
-> * mejora de formato de factura y agregar funcionalidad de impresion de factura
+> * mejora de formato de factura
 > * control de errores y mejoras de rendimiento (en proceso)
 > * Conteo independiente de mesas segun usuario activo.
 ***

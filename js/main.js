@@ -30,6 +30,8 @@ boton.addEventListener("click", () => {
 		boton.textContent = " Ordenar";
 		const factura = document.getElementById("factura");
 		factura.className = "my-5 invisible";
+		const botonImprimir = document.getElementById("botonImprimirFactura");
+		botonImprimir.className = "btn btn-lg btn-success my-2 invisible";
 	} else if (boton.textContent == " Ordenar") {
 		const platos = document.getElementById("contenedorPlatos");
 		platos.className = "container-fluid";
@@ -39,6 +41,8 @@ boton.addEventListener("click", () => {
 		boton.textContent = " Resumen";
 		const factura = document.getElementById("factura");
 		factura.className = "my-5 invisible";
+		const botonImprimir = document.getElementById("botonImprimirFactura");
+		botonImprimir.className = "btn btn-lg btn-success my-2 invisible";
 	}
 });
 
@@ -52,6 +56,8 @@ boton2.addEventListener("click", () => {
 	resumen.className = "my-5 invisible";
 	const factura = document.getElementById("factura");
 	factura.className = "my-5";
+	const botonImprimir = document.getElementById("botonImprimirFactura");
+	botonImprimir.className = "btn btn-lg btn-success my-2";
 	}
 );
 
@@ -161,7 +167,7 @@ const mostrarFactura = () => {
 	});
 
 	itemsfactura.appendChild(fragment2);
-	const aleatorio = Math.random() * 10000000000000000;
+	const aleatorio = Math.random() * 100000000000000000;
 	JsBarcode("#barcode", aleatorio);
 	pintarFooterFactura();
 };
@@ -228,6 +234,13 @@ const pintarFooterFactura = () => {
 
 	footerFactura.appendChild(fragment2);
 };
+
+function imprimirFactura(elemento) {
+	var imprimirContenido = document.getElementById(elemento).innerHTML;
+	document.body.innerHTML = imprimirContenido;
+	window.print();
+	window.location.href = "../pages/sistema.html";
+}
 
 const accionBotones = () => {
 	const botonesAgregar = document.querySelectorAll("#items .btn-info");
