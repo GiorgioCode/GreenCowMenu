@@ -96,7 +96,8 @@ const verificarBackupMesa = () => {
 		resumen = JSON.parse(localStorage.getItem("backupMesa"));
 		return;
 	} else {
-		localStorage.setItem("backupMesa", "");
+		resumen = {};
+		localStorage.setItem("backupMesa", JSON.stringify(resumen));
 		return;
 	}
 };
