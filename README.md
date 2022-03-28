@@ -37,6 +37,8 @@ PROBLEMATICA:
 > * mejora de formato de factura
 > * agregado de avisos para prevenir acciones indeseadas por el usuario
 > * control de acceso a sistema, reenviando al login a usuarios no registrados
+> * guardado de las ordenes de la mesa en el localStorage.
+> * capacidad de modificacion de lo guardado en el localStorage desde seccion resumen
 ***
 
 >TAREAS PENDIENTES:

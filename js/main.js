@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	fetchDatos(); //llama a funcion para traer datos del JSON
 	filtroProductos(".buscarProductos", ".card");
 	actualUsuario();
+	datosFactura();
+	verificarBackupMesa();
+	mostrarResumen();
+	mostrarFactura();
 });
 
 const fetchDatos = async () => {
@@ -15,7 +19,6 @@ const fetchDatos = async () => {
 		console.log(error);
 	}
 };
-
 
 const boton = document.getElementById("botonCambiar");
 
@@ -64,8 +67,7 @@ boton2.addEventListener("click", () => {
 	botonImprimir.className = "btn btn-lg btn-success my-2";
 	const botonDescuento = document.getElementById("botonCuponDescuento");
 	botonDescuento.className = "btn btn-lg btn-warning my-2";
-	}
-);
+});
 
 //generador de tarjetas de productos
 const contendorProductos = document.querySelector("#contenedor-productos");
@@ -87,10 +89,21 @@ const mostrarPlatos = (data) => {
 };
 
 let resumen = {};
+resumen = JSON.parse(localStorage.getItem("backupMesa"));
+
+const verificarBackupMesa = () => {
+	if (localStorage.getItem("backupMesa") !== null) {
+		resumen = JSON.parse(localStorage.getItem("backupMesa"));
+		return;
+	} else {
+		localStorage.setItem("backupMesa", "");
+		return;
+	}
+};
 
 //boton agregar producto a la mesa
 const detectarBotones = (data) => {
-    const botones = document.querySelectorAll(".card button");
+	const botones = document.querySelectorAll(".card button");
 	//escuchar botones de tarjetas para agregar el plato a la mesa
 	botones.forEach((btn) => {
 		btn.addEventListener("click", () => {
@@ -111,11 +124,11 @@ const detectarBotones = (data) => {
 				gravity: "top", // `top` or `bottom`
 				position: "right", // `left`, `center` or `right`
 				offset: {
-					y: 110 // vertical axis - can be a number or a string indicating unity. eg: '2em'
-				  },
+					y: 110, // vertical axis - can be a number or a string indicating unity. eg: '2em'
+				},
 				style: {
-				  background: "linear-gradient(to right, #198754, #558a3f)",
-				}
+					background: "linear-gradient(to right, #198754, #558a3f)",
+				},
 			}).showToast();
 			mostrarResumen();
 			mostrarFactura();
@@ -127,9 +140,7 @@ const items = document.querySelector("#items");
 
 const mostrarResumen = () => {
 	//muestra resumen de lo cargado en la mesa
-
 	items.innerHTML = "";
-
 	const template = document.querySelector("#template-resumen").content;
 	const fragment = document.createDocumentFragment();
 
@@ -147,9 +158,8 @@ const mostrarResumen = () => {
 		const clone = template.cloneNode(true);
 		fragment.appendChild(clone);
 	});
-
 	items.appendChild(fragment);
-
+	localStorage.setItem("backupMesa", JSON.stringify(resumen));
 	pintarFooter();
 	accionBotones();
 };
@@ -178,7 +188,6 @@ const mostrarFactura = () => {
 	const aleatorio = Math.random() * multiplicador;
 	JsBarcode("#barcode", aleatorio);
 	pintarFooterFactura();
-	datosFactura();
 };
 
 const footer = document.querySelector("#footer-resumen");
@@ -219,7 +228,6 @@ const footerFactura = document.querySelector("#footer-resumen-factura");
 const pintarFooterFactura = () => {
 	footerFactura.innerHTML = "";
 
-
 	const template2 = document.querySelector("#template-footer-factura").content;
 	const fragment2 = document.createDocumentFragment();
 	const nCantidad = Object.values(resumen).reduce(
@@ -240,12 +248,18 @@ const pintarFooterFactura = () => {
 	footerFactura.appendChild(fragment2);
 };
 
-function imprimirFactura() {
-	printJS('factura', 'html');
+botonImpresion = document.getElementById("imprimir");
+botonImpresion.addEventListener("click", () => {
+	let documento = document.body.innerHTML;
+	let imprimirContenido = document.getElementById("factura").innerHTML;
+	document.body.innerHTML = imprimirContenido;
+	window.print();
+	resumen = {};
+	localStorage.setItem("backupMesa", JSON.stringify(resumen));
 	window.location.href = "../pages/sistema.html";
-}
+});
 
-const accionBotones = () => {
+function accionBotones() {
 	const botonesAgregar = document.querySelectorAll("#items .btn-info");
 	const botonesEliminar = document.querySelectorAll("#items .btn-danger");
 
@@ -254,6 +268,7 @@ const accionBotones = () => {
 			const producto = resumen[btn.dataset.id];
 			producto.cantidad++;
 			resumen[btn.dataset.id] = { ...producto };
+			localStorage.setItem("backupMesa", JSON.stringify(resumen));
 			mostrarResumen();
 			mostrarFactura();
 		});
@@ -268,11 +283,19 @@ const accionBotones = () => {
 			} else {
 				resumen[btn.dataset.id] = { ...producto };
 			}
+			localStorage.setItem("backupMesa", JSON.stringify(resumen));
 			mostrarResumen();
 			mostrarFactura();
 		});
 	});
-};
+
+	const botonVaciar = document.getElementById("vaciarMesa");
+	botonVaciar.addEventListener("click", () => {
+		resumen = {};
+		localStorage.setItem("backupMesa", JSON.stringify(resumen));
+		window.location.href = "../pages/sistema.html";
+	});
+}
 
 //BUSCADOR DE PRODUCTOS
 function filtroProductos(input, selector) {
@@ -297,24 +320,44 @@ function actualUsuario() {
 	mailUsuarioActual.textContent = localStorage.getItem("mailActual");
 	const mailfactura = document.querySelector(".mailmesero2");
 	mailfactura.textContent = localStorage.getItem("mailActual");
-	if(localStorage.getItem("mailActual")===null) {
-		alert("Usuario no registrado, por favor, regístrese antes de usar la aplicación.")
+	if (localStorage.getItem("mailActual") === null) {
+		alert(
+			"Usuario no registrado, por favor, regístrese antes de usar la aplicación."
+		);
 		window.location.href = "../index.html";
 	}
-};
+}
 
 function datosFactura() {
-	const f = new Date();
+	let date = new Date();
+	let fechaTexto = String(
+		date.getDate() +
+			"/" +
+			(date.getMonth() + 1) +
+			"/" +
+			date.getFullYear() +
+			" - " +
+			date.getHours() +
+			":" +
+			date.getMinutes()
+	);
 	let fechaFactura = document.getElementById("fechaEmisionFactura");
-	fechaFactura.textContent=f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-	if (localstorage.getItem("numeroFactura")===null) {
-		localStorage.setItem("numeroFactura","000345");
-	} else {
-		let numerador=parseInt(JSON.parse(localstorage.getItem("numeroFactura")));
-		numerador++
-		numerador=localStorage.setItem("numeroFactura", JSON.stringify(numerador));
-	}
-
+	fechaFactura.textContent = fechaTexto;
+	verificarFacturacion();
+	let facturaUltima = JSON.parse(localStorage.getItem("ultimaFactura"));
+	console.log(facturaUltima);
+	facturaUltima++;
+	console.log(facturaUltima);
 	let numeroFactura = document.getElementById("numeroEmisionFactura");
-	numeroFactura.textContent = Math(random)*100000;
-};
+	numeroFactura.textContent = facturaUltima;
+	localStorage.setItem("ultimaFactura", JSON.stringify(facturaUltima));
+}
+
+function verificarFacturacion() {
+	if (localStorage.getItem("ultimaFactura") !== null) {
+		return;
+	} else {
+		localStorage.setItem("ultimaFactura", JSON.stringify(34552));
+		return;
+	}
+}
