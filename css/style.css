@@ -102,7 +102,7 @@ footer {
 	text-decoration: bold;
 	color: #000;
 	background-clip: text;
-	text-fill-color: transparent;
+	text-emphasis-color: transparent;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	animation: shine 2s linear infinite;

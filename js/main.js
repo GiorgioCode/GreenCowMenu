@@ -178,6 +178,7 @@ const mostrarFactura = () => {
 	const aleatorio = Math.random() * multiplicador;
 	JsBarcode("#barcode", aleatorio);
 	pintarFooterFactura();
+	datosFactura();
 };
 
 const footer = document.querySelector("#footer-resumen");
