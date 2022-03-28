@@ -240,13 +240,6 @@ const pintarFooterFactura = () => {
 	footerFactura.appendChild(fragment2);
 };
 
-function imprimirFactura(elemento) {
-	var imprimirContenido = document.getElementById(elemento).innerHTML;
-	document.body.innerHTML = imprimirContenido;
-	window.print();
-	window.location.href = "../pages/sistema.html";
-}
-
 function imprimirFactura() {
 	printJS('factura', 'html');
 	window.location.href = "../pages/sistema.html";
