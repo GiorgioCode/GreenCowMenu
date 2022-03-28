@@ -247,6 +247,11 @@ function imprimirFactura(elemento) {
 	window.location.href = "../pages/sistema.html";
 }
 
+function imprimirFactura() {
+	printJS('factura', 'html');
+	window.location.href = "../pages/sistema.html";
+}
+
 const accionBotones = () => {
 	const botonesAgregar = document.querySelectorAll("#items .btn-info");
 	const botonesEliminar = document.querySelectorAll("#items .btn-danger");
