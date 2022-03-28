@@ -35,23 +35,28 @@
 								data-bs-target="#modalCambioUsuario"><i class="bi bi-menu-down"></i>
 								Cambiar Usuario</a>
 						</li>
-						<li>
-							<span class="lead text-white m-3">Usuario: </span><span class="text-white" id="mailmesero">mail</span>
-						</li>
-
+						<div class="me-auto">
+							<p class="text-white ml-2">Usuario: </span><span class="text-white mailmesero">mail</p>
+						</div>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<nav class="container-fluid fondoverdeclaro barrabusqueda">
-			<div class="row d-flex justify-content-end">
+			<div class="row d-flex justify-content-start">
 				<div class="col-3">
 					<button type="button" id="botonCambiar" class="btn btn-outline-info text-white"> Resumen</button>
 				</div>
 				<div class="col-3">
 					<button type="button" id="botonFacturar" class="btn btn-outline-warning text-white"> Facturar</button>
 				</div>
-				<div class="col-6">
+				<div class="col-2">
+					<button class="btn btn-outline-danger" aria-current="page" data-bs-toggle="modal"
+					data-bs-target="#modalVaciarMesa">
+						<i class="bi bi-trash"></i>
+					</button>
+				</div>
+				<div class="col-4">
 					<input class="form-control buscarProductos" list="datalistOptions" id="exampleDataList"
 						placeholder="Buscar Productos">
 					<datalist id="datalistOptions">
@@ -73,20 +78,64 @@
 		<!--FACTURACION DE LA MESA-->
 		<div class="container">
 			<div class="separador"></div>
-			<div class="d-flex justify-content-center">
-				<button
-						id="botonImprimirFactura"
-						class="btn btn-lg btn-success my-2 invisible"
-						type="button"
-						onclick="imprimirFactura('factura');"
-					>
-						<i class="bi bi-printer-fill"></i> Imprimir factura y Limpiar mesa
-					</button>
-
+			<div class="row">
+				<div class="col-6 d-flex justify-content-center">
+					<button id="botonImprimirFactura" class="btn btn-success invisible" aria-current="page" data-bs-toggle="modal"
+					data-bs-target="#modalImprimirFactura"><i class="bi bi-printer-fill"></i>
+					Cerrar mesa e Imprimir Factura</button>
+				</div>
+				<div class="col-6 d-flex justify-content-center">
+					<button id="botonCuponDescuento" class="btn btn-danger invisible" aria-current="page" data-bs-toggle="modal"
+					data-bs-target="#modalCuponDescuento"><i class="bi bi-piggy-bank-fill"></i></i>
+					Aplicar Cupon de descuento</button>
+				</div>
 			</div>
+			
 			<div class="my-5 invisible" id="factura">
-				<div class="separador"></div>
-				<h4 class="text-center">FACTURA</h4>
+				<hr>
+				<div class="row">
+					<p class="lead text-center">ORIGINAL</p>
+				</div>
+				<div class="row">
+					<div class="col-5 d-flex justify-content-center">
+						<ul class="list-unstyled">
+							<li class="text-center"><h3 class="display-3"><b>GreenCow</b></h3></li>
+							<li class="text-center"><h6>VEG FOOD</h6></li>
+						</ul>
+					</div>
+					<div class="col-2">
+						<ul class="list-unstyled">
+							<li class="display-3 text-center"><b>B</b></li>
+							<li class="text-center"><b>COD. 06</b></li>
+						</ul>
+					</div>
+					<div class="col-5">
+						<ul class="list-unstyled">
+							<li class="display-6">FACTURA</li>
+							<li><b>PUNTO DE VENTA: </b>0001</li>
+							<li><b>FACTURA N°: </b><span id="numeroEmisionFactura"></span>000541</li>
+							<li><b>FECHA EMISIÓN: </b><span id="fechaEmisionFactura"></span>23/03/2022</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<ul class="list-unstyled">
+							<li>Av. Verde N° 234 - CABA - Buenos Aires.</li>
+							<li>info@greencow.netlify.app</li>
+							<li>greencow.netlify.app</li>
+							<li class="text-center">RESPONSABLE INSCRIPTO</li>
+						</ul>
+					</div>
+					<div class="col-6">
+						<ul class="list-unstyled">
+							<li><b>CUIT: </b>20-31941666-9</li>
+							<li><b>INGRESOS BRUTOS: </b>902-598467598-9</li>
+							<li><b>INICIO DE ACTIVIDADES: </b>25/03/2020</li>
+						</ul>
+					</div>
+				</div>
+				<hr>
 				<table class="table table-white table-striped">
 					<thead>
 						<tr>
@@ -103,9 +152,19 @@
 						</tr>
 					</tfoot>
 				</table>
-				<div class="separador"></div>
-				<div class="d-flex justify-content-center">
-					<svg id="barcode"></svg>
+				<hr>
+				<div class="row"><p>ID MESERO: <span class="mailmesero2"></span></p></div>
+				<div class="row">
+					<div class="col-4"><svg class="img-fluid" id="barcode"></svg></div>
+					<div class="col-4"><img src="../img/afip.JPG" class="img-fluid" alt=""></div>
+					<div class="col-4">
+						<ul class="list-unstyled">
+							<li><b>CUIT: </b>20-31941666-9</li>
+							<li><b>INGRESOS BRUTOS: </b>902-598467598-9</li>
+							<li><b>INICIO DE ACTIVIDADES: </b>25/03/2020</li>
+						</ul>
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -159,7 +218,45 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- MODAL VACIAR MESA-->
+		<div class="modal fade" id="modalVaciarMesa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel2">Eliminar ordenes de la mesa.</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Esta seguro que desea eliminar las ordenes cargadas a la mesa?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+						<a class="btn btn-success" href="sistema.html">Eliminar ordenes cargadas.</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- MODAL IMPRIMIR FACTURA-->
+		<div class="modal fade" id="modalImprimirFactura" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabel3" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel3">Imprimir factura.</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Esta seguro que desea cerrar mesa e imprimir factura?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+						<button	id="imprimir" class="btn btn-lg btn-success my-2"type="button"
+						onclick="imprimirFactura('factura');"><i class="bi bi-printer-fill"></i> Imprimir factura y Limpiar mesa</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- MODAL DIAGRAMA DE MESAS-->
 		<div class="modal fade" id="modalMesas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -222,7 +319,8 @@
 			<th scope="row" colspan="2">Total consumos</th>
 			<td>10</td>
 			<td>
-				<button class="btn btn-outline-danger btn-sm" id="vaciar-resumen">
+				<button class="btn btn-outline-danger" aria-current="page" data-bs-toggle="modal"
+				data-bs-target="#modalVaciarMesa">
 					<i class="bi bi-trash"></i>
 				</button>
 			</td>

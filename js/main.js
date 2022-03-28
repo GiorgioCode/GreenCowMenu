@@ -32,6 +32,8 @@ boton.addEventListener("click", () => {
 		factura.className = "my-5 invisible";
 		const botonImprimir = document.getElementById("botonImprimirFactura");
 		botonImprimir.className = "btn btn-lg btn-success my-2 invisible";
+		const botonDescuento = document.getElementById("botonCuponDescuento");
+		botonDescuento.className = "btn btn-lg btn-warning my-2 invisible";
 	} else if (boton.textContent == " Ordenar") {
 		const platos = document.getElementById("contenedorPlatos");
 		platos.className = "container-fluid";
@@ -43,6 +45,8 @@ boton.addEventListener("click", () => {
 		factura.className = "my-5 invisible";
 		const botonImprimir = document.getElementById("botonImprimirFactura");
 		botonImprimir.className = "btn btn-lg btn-success my-2 invisible";
+		const botonDescuento = document.getElementById("botonCuponDescuento");
+		botonDescuento.className = "btn btn-lg btn-warning my-2 invisible";
 	}
 });
 
@@ -58,6 +62,8 @@ boton2.addEventListener("click", () => {
 	factura.className = "my-5";
 	const botonImprimir = document.getElementById("botonImprimirFactura");
 	botonImprimir.className = "btn btn-lg btn-success my-2";
+	const botonDescuento = document.getElementById("botonCuponDescuento");
+	botonDescuento.className = "btn btn-lg btn-warning my-2";
 	}
 );
 
@@ -100,16 +106,17 @@ const detectarBotones = (data) => {
 			resumen[producto.id] = { ...producto };
 			Toastify({
 				text: "Agregado " + producto.title + " a la mesa.",
+				duration: 1500,
 				className: "info",
-				gravity: "bottom", // `top` or `bottom`
+				gravity: "top", // `top` or `bottom`
 				position: "right", // `left`, `center` or `right`
 				offset: {
-					y: 30 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+					y: 110 // vertical axis - can be a number or a string indicating unity. eg: '2em'
 				  },
 				style: {
 				  background: "linear-gradient(to right, #198754, #558a3f)",
 				}
-			  }).showToast();
+			}).showToast();
 			mostrarResumen();
 			mostrarFactura();
 		});
@@ -148,6 +155,7 @@ const mostrarResumen = () => {
 };
 
 const itemsfactura = document.querySelector("#itemsfactura");
+
 const mostrarFactura = () => {
 	//muestra resumen de lo cargado en la mesa
 
@@ -165,9 +173,9 @@ const mostrarFactura = () => {
 		const clone = template2.cloneNode(true);
 		fragment2.appendChild(clone);
 	});
-
+	const multiplicador = 100000000000000000;
 	itemsfactura.appendChild(fragment2);
-	const aleatorio = Math.random() * 100000000000000000;
+	const aleatorio = Math.random() * multiplicador;
 	JsBarcode("#barcode", aleatorio);
 	pintarFooterFactura();
 };
@@ -203,15 +211,10 @@ const pintarFooter = () => {
 	fragment.appendChild(clone);
 
 	footer.appendChild(fragment);
-
-	const boton = document.querySelector("#vaciar-resumen");
-	boton.addEventListener("click", () => {
-		resumen = {};
-		mostrarResumen();
-	});
 };
 
 const footerFactura = document.querySelector("#footer-resumen-factura");
+
 const pintarFooterFactura = () => {
 	footerFactura.innerHTML = "";
 
@@ -226,6 +229,7 @@ const pintarFooterFactura = () => {
 		(acc, { cantidad, precio }) => acc + cantidad * precio,
 		0
 	);
+	//CUPON DE DESCUENTO APLICADO A nPrecio
 	template2.querySelectorAll("td")[0].textContent = nCantidad;
 	template2.querySelector("span").textContent = nPrecio;
 
@@ -290,6 +294,28 @@ function filtroProductos(input, selector) {
 }
 
 function actualUsuario() {
-	const mailUsuarioActual = document.getElementById("mailmesero");
+	const mailUsuarioActual = document.querySelector(".mailmesero");
 	mailUsuarioActual.textContent = localStorage.getItem("mailActual");
+	const mailfactura = document.querySelector(".mailmesero2");
+	mailfactura.textContent = localStorage.getItem("mailActual");
+	if(localStorage.getItem("mailActual")===null) {
+		alert("Usuario no registrado, por favor, regístrese antes de usar la aplicación.")
+		window.location.href = "../index.html";
+	}
+};
+
+function datosFactura() {
+	const f = new Date();
+	let fechaFactura = document.getElementById("fechaEmisionFactura");
+	fechaFactura.textContent=f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+	if (localstorage.getItem("numeroFactura")===null) {
+		localStorage.setItem("numeroFactura","000345");
+	} else {
+		let numerador=parseInt(JSON.parse(localstorage.getItem("numeroFactura")));
+		numerador++
+		numerador=localStorage.setItem("numeroFactura", JSON.stringify(numerador));
+	}
+
+	let numeroFactura = document.getElementById("numeroEmisionFactura");
+	numeroFactura.textContent = Math(random)*100000;
 };

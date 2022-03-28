@@ -126,3 +126,9 @@ footer {
 		font-size: 3.5rem;
 	}
 }
+
+@media (max-width: 768px){
+	#factura {
+		font-size:0.5rem;
+	}
+}
