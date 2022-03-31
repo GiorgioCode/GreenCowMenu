@@ -66,7 +66,6 @@ function loginUser() {
 	let matchEmail = JSON.parse(localStorage.getItem("datosGuardados"));
 	let emailArray = [];
 	let passArray = [];
-	let nameArray = [];
 
 	const result = matchEmail.map((email, i, matchEmail) => {
 		emailArray.push(matchEmail[i].email);
@@ -76,7 +75,7 @@ function loginUser() {
 		emailArray.indexOf(loginEmail) > -1 &&
 		passArray.indexOf(loginPass) > -1
 	) {
-		localStorage.setItem("mailActual", loginEmail) //en caso de validar, cargar datos nombre usuario actual en localstorage
+		localStorage.setItem("mailActual", loginEmail) //en caso de validar, cargar datos de ID de usuario actual (mail) en localstorage
 		window.location.href = "./pages/sistema.html";
 	} else {
 		alert(

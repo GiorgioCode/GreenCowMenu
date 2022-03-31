@@ -41,8 +41,5 @@ PROBLEMATICA:
 > * capacidad de modificacion de lo guardado en el localStorage desde seccion resumen
 ***
 
->TAREAS PENDIENTES:
-> * control de errores y mejoras de rendimiento (en proceso)
-> * Conteo independiente de mesas segun usuario activo.
 ***
 [VER CÓDIGO](https://github.com/GiorgioCode/GreenCowMenu/blob/master/index.html) - [VER EJEMPLO](https://greencow.netlify.app/)

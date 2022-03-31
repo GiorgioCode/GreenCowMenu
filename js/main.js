@@ -251,7 +251,6 @@ const pintarFooterFactura = () => {
 
 botonImpresion = document.getElementById("imprimir");
 botonImpresion.addEventListener("click", () => {
-	let documento = document.body.innerHTML;
 	let imprimirContenido = document.getElementById("factura").innerHTML;
 	document.body.innerHTML = imprimirContenido;
 	window.print();
