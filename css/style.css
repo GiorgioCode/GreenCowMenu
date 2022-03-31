@@ -33,6 +33,10 @@ body {
 	height: 4rem;
 }
 
+.separador2 {
+	height: 10rem;
+}
+
 footer {
 	position: fixed;
 	bottom: 0px;
